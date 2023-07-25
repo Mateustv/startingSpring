@@ -1,5 +1,6 @@
-package com.startignspring.firstproject;
+package com.startignspring.firstproject.controllers;
 
+import com.startignspring.firstproject.models.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

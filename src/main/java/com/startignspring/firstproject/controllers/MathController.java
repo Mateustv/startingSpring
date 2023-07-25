@@ -1,4 +1,4 @@
-package com.startignspring.firstproject;
+package com.startignspring.firstproject.controllers;
 
 import com.startignspring.firstproject.exceptions.UnsupportedMathOperationException;
 import org.springframework.web.bind.annotation.PathVariable;

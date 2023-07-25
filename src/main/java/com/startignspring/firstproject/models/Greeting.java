@@ -1,4 +1,4 @@
-package com.startignspring.firstproject;
+package com.startignspring.firstproject.models;
 
 public class Greeting {
     private final long id;
