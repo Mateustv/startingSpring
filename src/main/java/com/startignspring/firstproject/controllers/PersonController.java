@@ -3,10 +3,8 @@ import com.startignspring.firstproject.models.Person;
 import com.startignspring.firstproject.services.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +23,18 @@ public class PersonController {
         return personService.findAll();
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Person createPerson(@RequestBody Person person){
+        return personService.create(person);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public Person updatePerson(@RequestBody Person person){
+        return personService.update(person);
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public void deletePerson(@PathVariable(value = "id") String id){
+        personService.delete(id);
+    }
 }

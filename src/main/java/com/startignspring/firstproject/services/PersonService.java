@@ -31,6 +31,7 @@ public class PersonService {
             Person person = mockPerson(i);
             persons.add(person);
         }
+        return persons;
     }
 
     private Person mockPerson(int i) {
@@ -42,5 +43,19 @@ public class PersonService {
         person.setGender("Male");
 
         return person;
+    }
+
+    public Person create(Person person){
+        logger.info("create an person for create");
+        return person;
+    }
+
+    public Person update(Person person){
+        logger.info("update an person for update");
+        return person;
+    }
+
+    public void delete(String id){
+        logger.info("delete an person for delete");
     }
 }
