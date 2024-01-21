@@ -1,6 +1,6 @@
 package com.startignspring.firstproject.controllers;
 
-import com.startignspring.firstproject.exceptions.UnsupportedMathOperationException;
+import com.startignspring.firstproject.exceptions.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +16,7 @@ public class MathController {
             @PathVariable(value = "num2") String num2) throws Exception {
         
         if(!num1.matches("[0-9]+") || !num2.matches("[0-9]+"))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         
         return convertToDouble(num1) + convertToDouble(num2);
     }
@@ -26,7 +26,7 @@ public class MathController {
             @PathVariable(value = "num2") String num2) throws Exception {
 
         if(!num1.matches("[0-9]+") || !num2.matches("[0-9]+"))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
 
         return convertToDouble(num1) - convertToDouble(num2);
     }
@@ -36,7 +36,7 @@ public class MathController {
             @PathVariable(value = "num2") String num2) throws Exception {
 
         if(!num1.matches("[0-9]+") || !num2.matches("[0-9]+"))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
 
         return convertToDouble(num1) * convertToDouble(num2);
     }
@@ -46,7 +46,7 @@ public class MathController {
             @PathVariable(value = "num2") String num2) throws Exception {
 
         if(!num1.matches("[0-9]+") || !num2.matches("[0-9]+"))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
 
         return convertToDouble(num1) / convertToDouble(num2);
     }
@@ -57,7 +57,7 @@ public class MathController {
             @PathVariable(value = "num2") String num2) throws Exception {
 
         if(!num1.matches("[0-9]+") || !num2.matches("[0-9]+"))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
 
         return (convertToDouble(num1) + convertToDouble(num2))/2;
     }
@@ -66,7 +66,7 @@ public class MathController {
     public Double sqrt(@PathVariable(value = "num1") String num1) throws Exception {
 
         if(!num1.matches("[0-9]+"))
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
 
         return Math.sqrt(convertToDouble(num1));
     }
