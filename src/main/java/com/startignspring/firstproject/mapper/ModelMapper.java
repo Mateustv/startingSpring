@@ -1,13 +1,22 @@
 package com.startignspring.firstproject.mapper;
 
-import com.github.dozermapper.core.DozerBeanMapperBuilder;
-import com.github.dozermapper.core.Mapper;
+
+
+import com.startignspring.firstproject.data.vo.v1.PersonVO;
+import com.startignspring.firstproject.models.Person;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DozerMapper {
-    private static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+public class ModelMapper {
+    private static org.modelmapper.ModelMapper mapper = new org.modelmapper.ModelMapper();
+
+    static {
+        mapper.createTypeMap(Person.class, PersonVO.class)
+                .addMapping(Person::getId, PersonVO::setKey);
+        mapper.createTypeMap(PersonVO.class, Person.class)
+                .addMapping(PersonVO::getKey, Person::setId);
+    }
 
     public static <O, D> D parseObject(O origin, Class<D> destination){
         return mapper.map(origin, destination);

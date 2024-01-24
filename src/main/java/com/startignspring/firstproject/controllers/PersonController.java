@@ -1,6 +1,6 @@
 package com.startignspring.firstproject.controllers;
 import com.startignspring.firstproject.data.vo.v1.PersonVO;
-import com.startignspring.firstproject.services.PersonService;
+import com.startignspring.firstproject.unittests.mockito.services.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,7 +20,7 @@ public class PersonController {
         return personService.findById(id);
     }
 
-    @GetMapping(produces = "application/json")
+    @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE} )
     public List<PersonVO> findAll(){
         return personService.findAll();
     }
